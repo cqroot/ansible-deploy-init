@@ -1,0 +1,25 @@
+---
+- name: Remove all repositories
+  file:
+    state: "{{ item }}"
+    path: /etc/yum.repos.d
+    mode: "0755"
+  with_items:
+    - absent
+    - directory
+
+- name: Download repositories
+  ansible.builtin.get_url:
+    url: https://mirrors.aliyun.com/repo/Centos-7.repo
+    dest: /etc/yum.repos.d/CentOS-Base.repo
+
+- name: Make yum cache
+  shell: yum makecache
+
+- name: Install common packages
+  yum:
+    name: "{{ packages }}"
+  vars:
+    packages:
+      - vim
+      - net-tools

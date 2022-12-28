@@ -1,0 +1,6 @@
+---
+- name: CentOS 7
+  include_tasks: centos_7.yml
+  when:
+    - ansible_facts.distribution == "CentOS"
+    - ansible_facts.distribution_major_version|int == 7
