@@ -4,6 +4,7 @@
   become: yes
   become_method: sudo
   roles:
+    - role: firewalld
     - role: nameservers
     - role: pkgs
     - role: java

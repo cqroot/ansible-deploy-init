@@ -23,3 +23,4 @@
     packages:
       - vim
       - net-tools
+      - telnet
