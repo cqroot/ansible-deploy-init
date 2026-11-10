@@ -1,0 +1,7 @@
+---
+- name: Disable and stop ufw
+  systemd:
+    name: ufw
+    state: stopped
+    enabled: no
+  when: ansible_facts.services['ufw.service'] is defined

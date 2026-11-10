@@ -4,3 +4,8 @@
   when:
     - ansible_facts.distribution == "CentOS"
     - ansible_facts.distribution_major_version|int == 7
+
+- name: Ubuntu
+  include_tasks: ubuntu.yml
+  when:
+    - ansible_facts.distribution == "Ubuntu"
