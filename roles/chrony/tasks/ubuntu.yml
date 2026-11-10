@@ -1,0 +1,19 @@
+---
+- name: Configure chrony
+  copy:
+    dest: /etc/chrony/chrony.conf
+    mode: "0644"
+    content: |
+      # Managed by Ansible, do not edit manually.
+      {% for server in chrony_servers %}
+      server {{ server }} iburst
+      {% endfor %}
+      driftfile /var/lib/chrony/chrony.drift
+      makestep 1.0 3
+      rtcsync
+
+- name: Start and enable chrony
+  systemd:
+    name: chrony
+    state: started
+    enabled: yes

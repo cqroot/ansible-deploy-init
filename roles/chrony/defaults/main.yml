@@ -1,0 +1,4 @@
+---
+# NTP server list, overridable via role vars (e.g. roles vars in site.yml).
+chrony_servers:
+  - ntp.aliyun.com

@@ -5,4 +5,5 @@
   roles:
     - role: firewalld
     - role: nameservers
+    - role: chrony
     - role: pkgs
