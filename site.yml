@@ -7,4 +7,3 @@
     - role: firewalld
     - role: nameservers
     - role: pkgs
-    - role: java
